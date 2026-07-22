@@ -13,6 +13,7 @@ int binarysearch(int a[],int low,int high,int target){
 			low=mid+1;
 		}
 	}
+	return -1;
 }
 int main(){
 	cout<<"enter number of elements";
