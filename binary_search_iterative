@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+int binarysearch(int a[],int low,int high,int target){
+	while(low<=high){
+		int mid=(low+high)/2;
+		if(a[mid]==target){
+			return mid;
+		}
+		else if(a[mid]>target){
+			high=mid-1;
+		}
+		else{
+			low=mid+1;
+		}
+	}
+}
+int main(){
+	cout<<"enter number of elements";
+	int n;
+	cin>>n;
+	int* arr=new int[n];
+	for(int i=0;i<n;i++){
+		cout<<"enter element\n";
+		cin>>arr[i];
+	}
+	cout<<"enter target";
+	int target;
+	cin>>target;
+	cout<<binarysearch(arr,0,n-1,target);
+	return 0;
+}
