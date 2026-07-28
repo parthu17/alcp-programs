@@ -1,1 +1,43 @@
+include <iostream>
+#include <vector>
+#include <cmath>
+#include <algorithm>
+#include <cfloat>
 
+using namespace std;
+
+// Structure to represent a 2D Point
+struct Point {
+    double x, y;
+};
+
+// Helper function to compare points based on X-coordinates
+bool compareX(const Point& a, const Point& b) {
+    return a.x < b.x;
+}
+
+// Helper function to compare points based on Y-coordinates
+bool compareY(const Point& a, const Point& b) {
+    return a.y < b.y;
+}
+
+// Helper function to calculate Euclidean distance between two points
+double distance(Point p1, Point p2) {
+    return sqrt((p1.x - p2.x) * (p1.x - p2.x) + (p1.y - p2.y) * (p1.y - p2.y));
+}
+
+// ==========================================
+// 1. BRUTE FORCE METHOD - O(n^2)
+// ==========================================
+double bruteForce(const vector<Point>& P, int start, int end) {
+    double minDist = DBL_MAX;
+    for (int i = start; i < end; ++i) {
+        for (int j = i + 1; j < end; ++j) {
+            double d = distance(P[i], P[j]);
+            if (d < minDist) {
+                minDist = d;
+            }
+        }
+    }
+    return minDist;
+}
