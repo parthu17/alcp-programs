@@ -41,3 +41,12 @@ double bruteForce(const vector<Point>& P, int start, int end) {
     }
     return minDist;
 }
+int main() {
+    vector<Point> points = { {2, 3}, {12, 30}, {40, 50}, {5, 1}, {12, 10}, {3, 4} };
+
+    cout << "--- Closest Pair of Points ---" << endl;
+    cout << "Brute Force Distance : " << bruteForce(points, 0, points.size()) << endl;
+    
+
+    return 0;
+}
