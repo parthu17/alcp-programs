@@ -17,7 +17,7 @@ bool check_cycle_in_linkedlist(node* head){
 	return false;
 }
 int main(){
-	int num;
+	int num;//can do it in better method involving vector of nodes also
 	cout<<"enter the number of elements in linked list\n";
 	cin>>num;
 	node* head=NULL;
