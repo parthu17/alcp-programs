@@ -1,34 +1,29 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
 using namespace std;
-
-bool isValid(string s) {
-    stack<char> st;
- 
-    for (char c : s) {
-        if (c == '(' || c == '{' || c == '[') {
-            st.push(c);
-        } else {
-            if (st.empty()) return false;
- 
-            char top = st.top();
-            st.pop();
- 
-            if ((c == ')' && top != '(') ||
-                (c == '}' && top != '{') ||
-                (c == ']' && top != '[')) {
+bool isValidParenthesis(const string &st){
+    stack<char>s;
+    for(char ch:st){
+        if(ch=='('||ch=='['||ch=='{'){
+            s.push(ch);
+        }
+        else if(s.empty()){
+            return false;
+        }
+        else{
+            char top=s.top();
+            s.pop();
+            if(ch==')'&&top!='('||ch==']'&& top!='['||ch=='{'&&top!='}'){
                 return false;
             }
         }
     }
-    return st.empty();
+    return s.empty();
 }
- 
-int main() {
-    string s;
-    cout << "Enter a string of brackets: ";
-    cin >> s;
- 
-    cout << "Is valid: " << (isValid(s) ? "true" : "false") << endl;
- 
+int main(){
+    string st;
+    cout<<"enter string of brackets\n";
+    cin>>st;
+    string result=isValidParenthesis(st)?"true":"false";
+    cout<<result;
     return 0;
 }
