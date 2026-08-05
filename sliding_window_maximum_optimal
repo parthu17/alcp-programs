@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
- 
+
 vector<int> slidingWindowMax(vector<int> &arr, int k) {
     deque<int> dq;     // stores indices, values in decreasing order
     vector<int> result;
