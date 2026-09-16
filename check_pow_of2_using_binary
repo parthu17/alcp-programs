@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+bool check_pow_2_binary(int n){
+	if(n<1){   //You can also check if all the digits of n-1 are 1's then n is pow of 2
+		return false;
+	}
+	else{
+		if((n-1&n)==0){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
+}
+int main(){
+	int n;
+	cout<<"enter number\n";
+	cin>>n;
+	if(check_pow_2_binary(n)){
+		cout<<"power of 2";
+	}
+	else{
+		cout<<"not power of 2";
+	}
+	return 0;
+}

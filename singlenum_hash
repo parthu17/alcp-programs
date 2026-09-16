@@ -1,0 +1,28 @@
+#include<iostream>
+#include<vector>
+#include <unordered_map>
+using namespace std;
+int singlenum(vector<int> &nums){
+	unordered_map<int,int>frq(0);
+	for(int i=0;i<nums.size();i++){
+		frq[nums[i]]++;
+	}
+	for(int i=0;i<nums.size();i++){
+		if(frq[nums[i]]!=2){
+			return nums[i];
+		}
+	}
+	return -1;
+}
+int main(){
+	int ar_size;
+	cout<<"enter array size\n";
+	cin>>ar_size;
+	vector<int> nums(ar_size);
+	for(int i=0;i<ar_size;i++){
+		cout<<"enter element "<<i+1<<endl;
+		cin>>nums[i];
+	}
+	cout<<"result is "<<singlenum(nums)<<endl;
+	return 0;
+}

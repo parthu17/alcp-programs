@@ -1,0 +1,61 @@
+#include<bits/stdc++.h>
+using namespace std;
+struct node{
+	int data;
+	node* next;
+};
+bool check_cycle_in_linkedlist(node* head){
+	unordered_map<node*,bool>visited(false);
+	node* temp=head;
+    while(temp!=NULL && visited[temp]!=true){
+		node* curr=temp;
+		visited[curr]=true;
+		temp=temp->next;
+	}
+	
+	if(visited[temp]==true){
+		return true;
+	}
+	return false;
+	
+}
+int main(){
+    int num;//can do it in better method involving vector of nodes also
+	cout<<"enter the number of elements in linked list\n";
+	cin>>num;
+	node* head=NULL;
+	for(int i=num-1;i>=0;i--){
+		int temp;
+		cout<<"enter element "<<i+1<<endl;
+		cin>>temp;
+		node* newnode=new node();
+		newnode->data=temp;
+		if(head==NULL){
+			head=newnode;
+		}
+		else{
+			newnode->next=head;
+			head=newnode;
+		}
+		
+	}
+	int pos;
+	cout<<"enter position to cycle back\n";
+	cin>>pos;
+	if(pos>=1){
+    	node* temp=head;
+	    while(temp->next!=NULL){
+	        temp=temp->next;
+	    }
+	    node* connect=head;
+	    for(int i=1;i<pos;i++){
+	        connect=connect->next;
+	    }
+	    temp->next=connect;
+	    string result=check_cycle_in_linkedlist(head)?"true":"false";
+	    cout<<result<<endl;
+	}
+	
+	
+	return 0;
+}
