@@ -5,7 +5,7 @@ int climb_stairs(int n){
         return n;
     }
     int onestep=1;
-    int twostep=1;
+    int twostep=2;
     for(int i=3;i<=n;i++){
         int currstep=onestep+twostep;
         onestep=twostep;
