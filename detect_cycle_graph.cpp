@@ -4,7 +4,7 @@ bool dfsCycle(int node,int parent,vector<vector<int>&adj,vector<int> visited){
     visited[node]=true;
     for(int nb:adj[node]){
         if(!visited[nb]){
-            if(hasCycle(nb,node,adj,visited)){
+            if(dfsCycle(nb,node,adj,visited)){
                 return true;
             }
         }
