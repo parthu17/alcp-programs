@@ -1,0 +1,49 @@
+#include<iostream>
+using namespace std;
+int max1,min1;
+void min_max_recur(int i,int j,int a[],int &max,int &min){
+	if(i==j){
+		max=a[i];
+		min=a[i];
+	}
+	else if(i==j-1){
+		if(a[i]<a[j]){
+			min=a[i];
+			max=a[j];
+		}
+		else{
+			min=a[j];
+			max=a[i];
+		}
+	
+	
+	}
+	else{
+		int mid=(i+j)/2;
+		
+		min_max_recur(i,mid,a,max,min);
+		min_max_recur(mid+1,j,a,max1,min1);
+		if(max1>max){
+			max=max1;
+		}
+		if(min1<min){
+			min=min1;
+		}
+	}
+	
+}
+int main(){
+	cout<<"enter the number of elements\n";
+	int n;
+	cin>>n;
+	int* a=new int[n];
+	for(int i=0;i<n;i++){
+		cout<<"enter element\n";
+		cin>>a[i];
+	}
+	int min,max;
+	min_max_recur(0,n-1,a,max,min);
+	cout<<"max"<<max<<endl;
+	cout<<"min"<<min<<endl;
+	return 0;
+}

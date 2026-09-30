@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+int count_inversions(int a[],int n){
+	long long count=0;
+	for(int i=0;i<n-1;i++){
+		for(int j=i+1;j<n;j++){
+			if(a[j]<a[i]){
+				count++;
+			}
+		}
+	}
+	return count++;
+}
+int main(){
+	int n;
+	cout<<"enter no of elements\n";
+	cin>>n;
+	int* a= new int[n];
+	for(int i=0;i<n;i++){
+		cout<<"enter element\n";
+		cin>>a[i];
+	}
+	cout<<"inversions"<<count_inversions(a,n)<<endl;
+	return 0;
+}

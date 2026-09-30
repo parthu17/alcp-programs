@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int maxfn(int start,int end,vector<int> &arr){
+	int max=arr[start];
+	for(int i=start+1;i<=end;i++){
+		if(arr[i]>max){
+			max=arr[i];
+		}
+	}
+	return max;
+}
+vector<int> sliding_max(vector<int> &arr,int k){
+	vector<int> result;
+	for(int i=0;i<arr.size()-k+1;i++){
+		int maxele=maxfn(i,i+k-1,arr);
+		result.push_back(maxele);
+	}
+	return result;
+}
+int main(){
+	int n;
+	cout<<"enter number of elements\n";
+	cin>>n;
+	vector<int> arr(n);
+	for(int i=0;i<n;i++){
+		cin>>arr[i];
+	}
+	int k;
+	cin>>k;
+	vector<int> result=sliding_max(arr,k);
+	for(int ele:result){
+		cout<<ele<<"\n";
+	}
+	return 0;
+}
